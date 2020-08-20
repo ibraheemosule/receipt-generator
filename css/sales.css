@@ -1,0 +1,109 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial Narrow Bold', sans-serif;
+}
+
+div:nth-child(1) {
+    width: 30%;
+    height: auto;
+    color: rgb(46, 44, 44);
+    border: 3px solid rgba(1, 31, 1, 0.568);
+    border-radius: 5%;
+    background-color: rgba(213, 208, 214, 0.418);
+    padding: 1%;
+    box-shadow: 7px 7px 5px rgb(31, 30, 30);
+    margin: auto;
+    margin-top: 10%;
+}
+
+h3 {
+    text-align: center;
+    color: rgba(2, 4, 68, 0.835);
+    text-shadow:1.2px 1.2px darkolivegreen;
+}
+
+span {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4%;
+    height: 50px;
+}
+
+p {
+    padding: 0;
+    margin: 1.5%;
+    font-weight: 700;
+    font-size:90%;
+}
+
+input:nth-child(1), input:nth-child(2) {
+    text-align: center;
+    border: 2px solid rgb(105, 103, 103);
+    border-radius: 10px;
+    width:80%;
+}
+
+input:nth-child(2) {
+    width: auto;
+    margin-left: 2%;
+}
+
+div.itemPrice, div.itemPurchased {
+    display: flex;
+    font-size: small;
+    justify-content: space-between;
+    margin-bottom: 4%;
+    height: 40px;
+}
+
+div.amountPaid {
+  display: grid;
+  grid-template-areas: '. amountPaid submit' 'addAnother removeAnother submit';
+  grid-template-rows: 50px 50px;
+  row-gap: 4%;
+
+}
+
+p {
+    align-self: center;
+}
+
+input.itemPrice {
+    text-align: center;
+    border: 2px solid rgb(105, 103, 103);
+    border-radius: 10px;
+    align-self: stretch;
+}
+
+input.amountPaid {
+    grid-area: amountPaid;
+    margin: 0 4%;
+}
+button.add {
+    grid-area: addAnother;
+    background-color: rgba(239, 243, 26, 0.65);
+}
+button.remove {
+    grid-area: removeAnother;
+    margin: 0 4%;
+    background-color: rgba(160, 7, 7, 0.623);
+}
+button.submit {
+    grid-area: submit;
+}
+button {
+    background-color: rgba(6, 153, 43, 0.623);
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: all 0.75s ease;
+}
+button:hover {
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.548);
+}
