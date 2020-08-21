@@ -107,3 +107,88 @@ button:hover {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.548);
 }
+
+@media screen and (max-width: 1240px){
+    div:nth-child(1) {
+        width: 35%;
+    }
+}
+@media screen and (max-width: 1074px){
+    div:nth-child(1) {
+        width: 40%;
+    }
+}
+@media screen and (max-width: 912px){
+    div:nth-child(1) {
+        width: 45%;
+    }
+}
+@media screen and (max-width: 814px){
+    div:nth-child(1) {
+        padding-bottom: 20px;
+    }
+    div:nth-child(1) {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 728px){
+    div:nth-child(1) {
+        width: 55%;
+    }
+}
+@media screen and (max-width: 660px){
+    div:nth-child(1) {
+        width: 60%;
+    }
+}
+@media screen and (max-width: 606px){
+    div:nth-child(1) {
+        width: 70%;
+    }
+}
+@media screen and (max-width: 518px){
+    div:nth-child(1) {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 488px){
+    div:nth-child(1) {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 454px){
+    div:nth-child(1) {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 404px){
+    div:nth-child(1) {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 362px){
+    div.amountPaid {
+       display: flex;
+       flex-wrap: wrap;
+        row-gap: 10px;
+    }
+}
+@media screen and (max-width: 362px){
+    span {
+        height: 80px;
+        flex-wrap: wrap;
+    }
+    input:nth-child(1), input:nth-child(2) {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    input:nth-child(2) {
+        margin-bottom: 0;
+    }
+}
+@media screen and (max-width: 258px){
+div.itemPrice, div.itemPurchased {
+    height: 70px;
+    flex-wrap: wrap;
+    }
+}
