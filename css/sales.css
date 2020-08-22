@@ -40,10 +40,13 @@ p {
 }
 
 input:nth-child(1), input:nth-child(2) {
+    background-color: rgba(144, 140, 140, 0.239);
     text-align: center;
     border: 2px solid rgb(105, 103, 103);
     border-radius: 10px;
     width:80%;
+    pointer-events: none;
+    font-weight: 800;
 }
 
 input:nth-child(2) {
@@ -51,7 +54,7 @@ input:nth-child(2) {
     margin-left: 2%;
 }
 
-div.itemPrice, div.itemPurchased {
+div.itemPrice, div.product, div.itemPurchased {
     display: flex;
     font-size: small;
     justify-content: space-between;
@@ -61,33 +64,47 @@ div.itemPrice, div.itemPurchased {
 
 div.amountPaid {
   display: grid;
-  grid-template-areas: '. amountPaid submit' 'addAnother removeAnother submit';
+  grid-template-areas: '. amountPaid submit' 'reset addAnother submit';
   grid-template-rows: 50px 50px;
   row-gap: 4%;
-
+margin-bottom: 15px;
 }
 
 p {
     align-self: center;
 }
 
-input.itemPrice {
+input.itemPrice, input.product {
     text-align: center;
     border: 2px solid rgb(105, 103, 103);
     border-radius: 10px;
     align-self: stretch;
+    pointer-events: initial;
+    background-color: initial;
+    font-weight: initial;
+}
+input.product {
+width: 70%;
 }
 
 input.amountPaid {
     grid-area: amountPaid;
     margin: 0 4%;
+    pointer-events: initial;
+    background-color: initial;
+    font-weight: initial;
+}
+input.itemPurchased {
+    pointer-events: initial;
+    background-color: initial;
+    font-weight: initial;
 }
 button.add {
     grid-area: addAnother;
     background-color: rgba(239, 243, 26, 0.65);
 }
-button.remove {
-    grid-area: removeAnother;
+button.reset {
+    grid-area: reset;
     margin: 0 4%;
     background-color: rgba(160, 7, 7, 0.623);
 }
@@ -106,6 +123,17 @@ button:hover {
     cursor: pointer;
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.548);
+}
+table {
+    text-align: center;
+    width: 100%;
+ 
+}
+table, th, td {
+    font-size: smaller;
+}
+th, td {
+    padding: 0.5% 3% 0.5% 0;
 }
 
 @media screen and (max-width: 1240px){
@@ -177,6 +205,10 @@ button:hover {
     span {
         height: 80px;
         flex-wrap: wrap;
+    }
+    button.add {
+        margin-right: 20px;
+        margin-left: 10px;
     }
     input:nth-child(1), input:nth-child(2) {
         width: 100%;
