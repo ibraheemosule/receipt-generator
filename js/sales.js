@@ -51,16 +51,26 @@ submit.addEventListener('click', totalPriceFunc);
 
 //ADDITION FUNCTION
 const addition = () => {
-    let totalPrice = document.getElementsByTagName('input')[0].value;
-    let balance = document.getElementsByTagName('input')[1].value;
+    let totalPrice = document.getElementsByTagName('input')[0];
+    let balance = document.getElementsByTagName('input')[1];
     let product = document.getElementsByTagName('input')[2].value;
-    let productPrice= document.getElementsByTagName('input')[3].value;
-    let numberPurchased= document.getElementsByTagName('input')[4].value;
-    let amountPaid= document.getElementsByTagName('input')[5].value;
+    let productPrice= document.getElementsByTagName('input')[3];
+    let numberPurchased= document.getElementsByTagName('input')[4];
+    let amountPaid= document.getElementsByTagName('input')[5];
 
-    if(totalPrice === ""){
-        return totalPriceFunc();
-    }else if(totalPrice !== ""){
+    if(totalPrice.value === ""){
+        let newProductPrice = parseInt(productPrice.value);
+        let newNumberPurchased = parseInt(numberPurchased.value);
+        let newAmountPaid = parseInt(amountPaid.value);
+        let answer = newProductPrice * newNumberPurchased;
+
+         totalPrice.value = answer + "+";
+         if (isNaN(newAmountPaid) === false && newAmountPaid !== "") {
+            let balanceReturn = newAmountPaid - answer;
+            if(balanceReturn > 0){
+                balance.value = balanceReturn;
+            };
+        };
 
         let table = document.getElementsByTagName("table")[0];
 
@@ -71,8 +81,8 @@ const addition = () => {
         let columnThree = document.createElement("td");
 
         let itemBought = document.createTextNode(product);
-        let itemNumber = document.createTextNode(numberPurchased);
-       let price = document.createTextNode(productPrice);
+        let itemNumber = document.createTextNode(newNumberPurchased);
+       let price = document.createTextNode(answer);
 
        columnOne.appendChild(itemBought);
        columnTwo.appendChild(itemNumber);
@@ -84,17 +94,63 @@ const addition = () => {
 
        table.appendChild(tableRow);
 
-        document.getElementsByTagName('input')[0].value = totalPrice + "+";
-       // document.getElementsByTagName('input')[1].value = "";
         document.getElementsByTagName('input')[2].value = "";
         document.getElementsByTagName('input')[3].value = "";
         document.getElementsByTagName('input')[4].value = "";
-     //   document.getElementsByTagName('input')[5].value = "";
+     
+    }else if(totalPrice.value !== "" && productPrice.value !== "" && numberPurchased.value !== "" && product !== ""){
+
+     let newTotalPrice = parseInt(totalPrice.value);
+       let newBalance = parseInt(balance.value);
+       let newProductPrice = parseInt(productPrice.value);
+       let newNumberPurchased = parseInt(numberPurchased.value);
+       let newAmountPaid = parseInt(amountPaid.value);
+
+       let answer = newTotalPrice + (newProductPrice * newNumberPurchased);
+        totalPrice.value = answer + "+"
+        let itemPrice = newProductPrice * newNumberPurchased;
+        if (isNaN(newAmountPaid) === false && newAmountPaid !== "") {
+            let balanceReturn = newAmountPaid - answer;
+            if(balanceReturn > 0){
+                balance.value = balanceReturn;
+            };
+        };
+
+    
+       //WORKS 
+
+       let table = document.getElementsByTagName("table")[0];
+
+       let tableRow = document.createElement("tr");
+
+       let columnOne = document.createElement("td");
+       let columnTwo = document.createElement("td");
+       let columnThree = document.createElement("td");
+
+       let itemBought = document.createTextNode(product);
+       let itemNumber = document.createTextNode(newNumberPurchased);
+      let price = document.createTextNode(itemPrice);
+
+      columnOne.appendChild(itemBought);
+      columnTwo.appendChild(itemNumber);
+      columnThree.appendChild(price);
+
+      tableRow.appendChild(columnOne);
+      tableRow.appendChild(columnTwo);
+      tableRow.appendChild(columnThree);
+
+      table.appendChild(tableRow);
+
+       document.getElementsByTagName('input')[2].value = "";
+       document.getElementsByTagName('input')[3].value = "";
+       document.getElementsByTagName('input')[4].value = "";
 
 
 
 
-    }
+    } else {
+        alert("INPUT REQUIRED FIELD(S)");
+    };
 
 };
 add.addEventListener("click", addition);
