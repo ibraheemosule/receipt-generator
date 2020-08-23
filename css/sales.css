@@ -130,10 +130,11 @@ table {
  
 }
 table, th, td {
-    font-size: smaller;
+    font-size: x-small;
 }
 th, td {
     padding: 0.5% 3% 0.5% 0;
+    font-family: monospace, sans-serif;
 }
 
 @media screen and (max-width: 1240px){

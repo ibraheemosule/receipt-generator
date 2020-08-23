@@ -79,18 +79,22 @@ const addition = () => {
         let columnOne = document.createElement("td");
         let columnTwo = document.createElement("td");
         let columnThree = document.createElement("td");
+        let columnFour = document.createElement("td");
 
         let itemBought = document.createTextNode(product);
+        let itemPrice = document.createTextNode(newProductPrice);
         let itemNumber = document.createTextNode(newNumberPurchased);
        let price = document.createTextNode(answer);
 
        columnOne.appendChild(itemBought);
-       columnTwo.appendChild(itemNumber);
-       columnThree.appendChild(price);
+       columnTwo.appendChild(itemPrice);
+       columnThree.appendChild(itemNumber);
+       columnFour.appendChild(price);
 
        tableRow.appendChild(columnOne);
        tableRow.appendChild(columnTwo);
        tableRow.appendChild(columnThree);
+       tableRow.appendChild(columnFour);
 
        table.appendChild(tableRow);
 
@@ -101,7 +105,6 @@ const addition = () => {
     }else if(totalPrice.value !== "" && productPrice.value !== "" && numberPurchased.value !== "" && product !== ""){
 
      let newTotalPrice = parseInt(totalPrice.value);
-       let newBalance = parseInt(balance.value);
        let newProductPrice = parseInt(productPrice.value);
        let newNumberPurchased = parseInt(numberPurchased.value);
        let newAmountPaid = parseInt(amountPaid.value);
@@ -126,18 +129,22 @@ const addition = () => {
        let columnOne = document.createElement("td");
        let columnTwo = document.createElement("td");
        let columnThree = document.createElement("td");
+       let columnFour = document.createElement("td");
 
        let itemBought = document.createTextNode(product);
+       let newPrice = document.createTextNode(newProductPrice);
        let itemNumber = document.createTextNode(newNumberPurchased);
       let price = document.createTextNode(itemPrice);
 
       columnOne.appendChild(itemBought);
-      columnTwo.appendChild(itemNumber);
-      columnThree.appendChild(price);
+      columnTwo.appendChild(newPrice);
+      columnThree.appendChild(itemNumber);
+      columnFour.appendChild(price);
 
       tableRow.appendChild(columnOne);
       tableRow.appendChild(columnTwo);
       tableRow.appendChild(columnThree);
+      tableRow.appendChild(columnFour);
 
       table.appendChild(tableRow);
 
