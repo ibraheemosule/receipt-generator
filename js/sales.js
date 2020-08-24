@@ -75,13 +75,13 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
    let firstColumnThree = document.createElement("td");
    let firstColumnFour = document.createElement("td");
 
-   let balanceValue = document.createTextNode("BALANCE:");
-   let thePrice = document.createTextNode(balance.value);
+   let amountText = document.createTextNode("AMOUNT PAID:");
+   let theValue = document.createTextNode(newAmountPaid);
    let totalPriceValue = document.createTextNode("TOTAL PRICE:");
   let thePriceItem = document.createTextNode(totalPrice.value);
 
-   firstColumnOne.appendChild(balanceValue);
-   firstColumnTwo.appendChild(thePrice);
+   firstColumnOne.appendChild(amountText);
+   firstColumnTwo.appendChild(theValue);
    firstColumnThree.appendChild(totalPriceValue);
    firstColumnFour.appendChild(thePriceItem);
 
@@ -91,6 +91,22 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
    finalTableRow.appendChild(firstColumnFour);
 
    table.appendChild(finalTableRow);
+
+   let balanceRow = document.createElement("tr");
+
+   let balanceColumnOne = document.createElement("td");
+   let balanceColumnTwo = document.createElement("td");
+   
+   let balanceText = document.createTextNode("BALANCE:");
+   let thePrice = document.createTextNode(balance.value);
+
+   balanceColumnOne.appendChild(balanceText);
+   balanceColumnTwo.appendChild(thePrice);
+
+   balanceRow.appendChild(balanceColumnOne);
+   balanceRow.appendChild(balanceColumnTwo);
+
+   table.appendChild(balanceRow);
 
    product.value = ""
    productPrice.value = ""
@@ -166,13 +182,13 @@ document.getElementsByTagName('input')[5].placeholder = "ENTER AMOUNT PAID";
    let firstColumnThree = document.createElement("td");
    let firstColumnFour = document.createElement("td");
 
-   let balanceValue = document.createTextNode("BALANCE:");
-   let thePrice = document.createTextNode(balance.value);
+   let amountText = document.createTextNode("AMOUNT PAID:");
+   let theValue = document.createTextNode(newAmountPaid);
    let totalPriceValue = document.createTextNode("TOTAL PRICE:");
   let thePriceItem = document.createTextNode(totalPrice.value);
 
-   firstColumnOne.appendChild(balanceValue);
-   firstColumnTwo.appendChild(thePrice);
+   firstColumnOne.appendChild(amountText);
+   firstColumnTwo.appendChild(theValue);
    firstColumnThree.appendChild(totalPriceValue);
    firstColumnFour.appendChild(thePriceItem);
 
@@ -182,6 +198,22 @@ document.getElementsByTagName('input')[5].placeholder = "ENTER AMOUNT PAID";
    finalTableRow.appendChild(firstColumnFour);
 
    table.appendChild(finalTableRow);
+
+   let balanceRow = document.createElement("tr");
+
+   let balanceColumnOne = document.createElement("td");
+   let balanceColumnTwo = document.createElement("td");
+   
+   let balanceText = document.createTextNode("BALANCE:");
+   let thePrice = document.createTextNode(balance.value);
+
+   balanceColumnOne.appendChild(balanceText);
+   balanceColumnTwo.appendChild(thePrice);
+
+   balanceRow.appendChild(balanceColumnOne);
+   balanceRow.appendChild(balanceColumnTwo);
+
+   table.appendChild(balanceRow);
 
    product.value = ""
    productPrice.value = ""
