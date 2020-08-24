@@ -10,24 +10,101 @@ let submit= document.getElementsByTagName('button')[2];
 
 //ANSWER OR SUBMIT FUNCTION
 const totalPriceFunc = () => {
+let totalPrice = document.getElementsByTagName('input')[0];
+let balance = document.getElementsByTagName('input')[1];
+let product = document.getElementsByTagName('input')[2];
+let OutputProduct = document.getElementsByTagName('input')[2].value;
  let newPrice = document.getElementsByTagName('input')[0].value;
-let itemPrice= document.getElementsByTagName('input')[3].value;
-let numberPurchased= document.getElementsByTagName('input')[4].value;
-let amountPaid= document.getElementsByTagName('input')[5].value;
-let balanceReturn= document.getElementsByTagName('input')[1];
+let productPrice= document.getElementsByTagName('input')[3];
+let numberPurchased= document.getElementsByTagName('input')[4];
+let amountPaid= document.getElementsByTagName('input')[5];
 
-if(newPrice.includes("+", 1)){
-    let totalPrice = document.getElementsByTagName('input')[0];
-let answer = eval(newPrice+(itemPrice * numberPurchased));
- totalPrice.value = answer;
- if (isNaN(amountPaid) == false && amountPaid !== "") {
-    let balance = eval(amountPaid - answer);
-    if(balance > 0){
-        balanceReturn.value = balance;
+if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.value !== "" && product !== "" && isNaN(productPrice.value)===false  && isNaN(numberPurchased.value)===false  && isNaN(amountPaid.value)===false){
+    let generate = confirm('Is this your last product addition? if you proceed, the receipt would be generated. CLICK OK TO CONTINUE or CANCEL TO RETURN');
+    if(generate){
+    let removePlus = newPrice.replace("+", "");
+    let price = parseInt(removePlus);
+    let newProductPrice = parseInt(productPrice.value);
+    let newNumberPurchased = parseInt(numberPurchased.value);
+    let newAmountPaid = parseInt(amountPaid.value);
+    let answer = price + newProductPrice * newNumberPurchased;
+    let itemPrice = newProductPrice * newNumberPurchased;
+
+    totalPrice.value = answer;
+
+    if (isNaN(newAmountPaid) === false && newAmountPaid !== "") {
+        let balanceReturn = newAmountPaid - answer;
+        if(balanceReturn > 0){
+            balance.value = balanceReturn;
+        } else {
+            balance.value = "NO BALANCE";
+        }
     };
+    
+    let table = document.getElementsByTagName("table")[0];
+
+    let tableRow = document.createElement("tr");
+
+    let columnOne = document.createElement("td");
+    let columnTwo = document.createElement("td");
+    let columnThree = document.createElement("td");
+    let columnFour = document.createElement("td");
+
+    let itemBought = document.createTextNode(OutputProduct);
+    let theItemPrice = document.createTextNode(newProductPrice);
+    let itemNumber = document.createTextNode(newNumberPurchased);
+   let priceItem = document.createTextNode(itemPrice);
+
+   columnOne.appendChild(itemBought);
+   columnTwo.appendChild(theItemPrice);
+   columnThree.appendChild(itemNumber);
+   columnFour.appendChild(priceItem);
+
+   tableRow.appendChild(columnOne);
+   tableRow.appendChild(columnTwo);
+   tableRow.appendChild(columnThree);
+   tableRow.appendChild(columnFour);
+
+   table.appendChild(tableRow);
+
+   let finalTableRow = document.createElement("tr");
+
+   let firstColumnOne = document.createElement("td");
+   let firstColumnTwo = document.createElement("td");
+   let firstColumnThree = document.createElement("td");
+   let firstColumnFour = document.createElement("td");
+
+   let balanceValue = document.createTextNode("BALANCE:");
+   let thePrice = document.createTextNode(balance.value);
+   let totalPriceValue = document.createTextNode("TOTAL PRICE:");
+  let thePriceItem = document.createTextNode(totalPrice.value);
+
+   firstColumnOne.appendChild(balanceValue);
+   firstColumnTwo.appendChild(thePrice);
+   firstColumnThree.appendChild(totalPriceValue);
+   firstColumnFour.appendChild(thePriceItem);
+
+   finalTableRow.appendChild(firstColumnOne);
+   finalTableRow.appendChild(firstColumnTwo);
+   finalTableRow.appendChild(firstColumnThree);
+   finalTableRow.appendChild(firstColumnFour);
+
+   table.appendChild(finalTableRow);
+
+   console.log("this is you");
+
+   product.value = ""
+   productPrice.value = ""
+   numberPurchased.value = ""
+
+   product.style.pointerEvents = "none";
+   productPrice.style.pointerEvents = "none";
+   numberPurchased.style.pointerEvents = "none";
+   amountPaid.style.pointerEvents = "none";
+   
     };
-} else {
-    if(itemPrice === ""){
+} /*else {
+    if(newPrice === ""){
 document.getElementsByTagName('input')[3].placeholder = "Input Price of item";
 } else if(numberPurchased === ""){
     document.getElementsByTagName('input')[4].placeholder = "Input a Number of item";
@@ -45,7 +122,7 @@ let answer = eval(itemPrice * numberPurchased);
     };
  };
 };
-};
+}; */
 };
 submit.addEventListener('click', totalPriceFunc);
 
@@ -57,14 +134,15 @@ const addition = () => {
     let productPrice= document.getElementsByTagName('input')[3];
     let numberPurchased= document.getElementsByTagName('input')[4];
     let amountPaid= document.getElementsByTagName('input')[5];
-
-    if(totalPrice.value === ""){
+  
+    if(totalPrice.value === "" && productPrice.value !== "" && numberPurchased.value !== "" && product !== "" && isNaN(productPrice.value)===false  && isNaN(numberPurchased.value)===false  && isNaN(amountPaid.value)===false){
         let newProductPrice = parseInt(productPrice.value);
         let newNumberPurchased = parseInt(numberPurchased.value);
         let newAmountPaid = parseInt(amountPaid.value);
         let answer = newProductPrice * newNumberPurchased;
 
          totalPrice.value = answer + "+";
+
          if (isNaN(newAmountPaid) === false && newAmountPaid !== "") {
             let balanceReturn = newAmountPaid - answer;
             if(balanceReturn > 0){
@@ -156,7 +234,7 @@ const addition = () => {
 
 
     } else {
-        alert("INPUT REQUIRED FIELD(S)");
+        alert("ENTER VALID DIGITS");
     };
 
 };
