@@ -332,7 +332,7 @@ const toPrint = () => {
             let a = window.open(' ',' ', 'height=500, width=400');
             a.document.write('<html>');
             a.document.write('<head> <style>');
-            a.document.write(' * {box-sizing: border-box;} caption {margin-left: 180px; font-weight: 900; word-break: keep-all; font-size: 15px;} table,th, td { font-family: monospace, sans-serif; text-align: center; border: 0.2px solid black; border-collapse: collapse; border: 0.2px solid black; padding: 5px; font-size: xx-small;}');
+            a.document.write(' * {box-sizing: border-box;} caption {font-weight: 900; margin-left:140px; font-size: 15px;}   table{width: 360px; margin: auto;} table,th, td { font-family: monospace, sans-serif; border: 0.2px solid black; border-collapse: collapse; border: 0.2px solid black; padding: 5px; font-size: xx-small;} th,td {text-align: center;}');
             a.document.write('</style> </head>');
             a.document.write('<body> <br>');
             a.document.write(receipt);
