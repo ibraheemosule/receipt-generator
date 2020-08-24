@@ -6,6 +6,7 @@
 let reset= document.getElementsByTagName('button')[0];
 let add= document.getElementsByTagName('button')[1];
 let submit= document.getElementsByTagName('button')[2];
+let printNow = document.getElementsByTagName('button')[3];
 
 
 //ANSWER OR SUBMIT FUNCTION
@@ -318,3 +319,28 @@ const set = () => {
     document.location.reload();
 };
 reset.addEventListener("click", set);
+
+const toPrint = () => {
+    let totalPrice = document.getElementsByTagName('input')[0].value;
+    if(totalPrice === ""){
+        alert ("NOTHING TO PRINT")
+    } else {
+
+      const printDiv = () => {
+        document.getElementsByTagName("caption")[0].style.display = "initial";
+        let receipt = document.getElementById("receipt").innerHTML;
+            let a = window.open(' ',' ', 'height=500, width=400');
+            a.document.write('<html>');
+            a.document.write('<head> <style>');
+            a.document.write(' * {box-sizing: border-box;} caption {margin-left: 180px; font-weight: 900; word-break: keep-all; font-size: 15px;} table,th, td { font-family: monospace, sans-serif; text-align: center; border: 0.2px solid black; border-collapse: collapse; border: 0.2px solid black; padding: 5px; font-size: xx-small;}');
+            a.document.write('</style> </head>');
+            a.document.write('<body> <br>');
+            a.document.write(receipt);
+            a.document.write('</body> </html>');
+            a.document.close();
+            a.print()
+        };
+        printDiv();
+    };
+};
+printNow.addEventListener("click", toPrint);

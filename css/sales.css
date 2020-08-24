@@ -111,6 +111,16 @@ button.reset {
 button.submit {
     grid-area: submit;
 }
+
+button.receipt {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(25, 25, 241, 0.534);
+    color: white;
+    margin-bottom: 15px;
+    box-shadow: 4px 4px 2px rgb(68, 67, 67);
+}
+
 button {
     background-color: rgba(6, 153, 43, 0.623);
     color: rgb(0, 0, 0);
@@ -124,6 +134,16 @@ button:hover {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.548);
 }
+
+caption {
+    display: none;
+    text-align: center;
+    font-weight: 900;
+    margin-left: 170%;
+    margin-bottom: 15px;
+    word-break: keep-all;
+}
+
 table {
     text-align: center;
     width: 100%;
@@ -134,6 +154,9 @@ table, th, td {
 }
 th, td {
     padding: 0.5% 3% 0.5% 0;
+    font-size: smaller;
+    letter-spacing: 0.5px;
+    word-break: break-word;
     font-family: monospace, sans-serif;
 }
 

@@ -13,7 +13,7 @@
     </head>
     <body>
         <div>
-           <h3> PRICE ESTIMATOR</h3>
+           <h3>RECEIPT GENERATOR</h3>
         
                <span class="price">
                 <input type="text" placeholder="TOTAL PRICE">
@@ -38,8 +38,11 @@
                 <button class="add">ADD ITEM</button>
                 <button class="submit">SUBMIT</button>
             </div>
-            <div class="receipt">
+            <div>
+                <button class="receipt">PRINT RECEIPT</button>
+            <div id="receipt">
                 <table>
+                    <caption>RECEIPT</caption>
                     <tr>
                     <th>ITEM BOUGHT</th>
                     <th>SELLING PRICE</th>
@@ -48,7 +51,7 @@
                 </tr>
                 </table>
             </div>
-         
+        </div>
         </div>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
