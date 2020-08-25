@@ -1,26 +1,47 @@
 
 
-
-
-
 let reset= document.getElementsByTagName('button')[0];
 let add= document.getElementsByTagName('button')[1];
 let submit= document.getElementsByTagName('button')[2];
 let printNow = document.getElementsByTagName('button')[3];
 
+printNow.disabled = true;
 
 //ANSWER OR SUBMIT FUNCTION
 const totalPriceFunc = () => {
+
 let totalPrice = document.getElementsByTagName('input')[0];
 let balance = document.getElementsByTagName('input')[1];
 let product = document.getElementsByTagName('input')[2];
 let OutputProduct = document.getElementsByTagName('input')[2].value;
+OutputProduct = OutputProduct.toUpperCase();
 let newPrice = document.getElementsByTagName('input')[0].value;
 let productPrice= document.getElementsByTagName('input')[3];
 let numberPurchased= document.getElementsByTagName('input')[4];
 let amountPaid= document.getElementsByTagName('input')[5];
 
-if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.value !== "" && product !== "" && isNaN(productPrice.value)===false  && isNaN(numberPurchased.value)===false  && isNaN(amountPaid.value)===false){
+let theDate = new Date()
+let theYear = theDate.getFullYear();
+theYear = theYear.toString()
+theYear = theYear.substr(2, 4)
+ let theMonth = theDate.getMonth() + 1 + "/";
+ let theDay = theDate.getDate() + "/";
+ let date = `DATE: ${theDay}${theMonth}${theYear}`
+ let theHour = theDate.getHours();
+ let theMinutes = theDate.getMinutes();
+ let time;
+
+ if(theHour === 0){
+     theHour = theHour + 12;
+     time = "TIME:" + " " + theHour + ":" + theMinutes + " " + "AM";
+ } else if(theHour > 0 && theHour < 12){
+     time = "TIME:"+ " " + theHour + ":" + theMinutes + " " + "AM";
+ } else {
+    theHour = theHour - 12;
+     time = "TIME:" + " " + theHour + ":" + theMinutes + " " + "PM";
+ };
+
+if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.value !== "" && product.value !== "" && isNaN(productPrice.value)===false  && isNaN(numberPurchased.value)===false  && isNaN(amountPaid.value)===false){
     let generate = confirm('Is this your last product addition? if you proceed, the receipt would be generated. CLICK OK TO CONTINUE or CANCEL TO RETURN');
     if(generate){
     let removePlus = newPrice.replace("+", "");
@@ -96,21 +117,32 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
 
    let balanceColumnOne = document.createElement("td");
    let balanceColumnTwo = document.createElement("td");
+   let dateColumnThree = document.createElement("td");
+   let timeColumnFour = document.createElement("td");
    
    let balanceText = document.createTextNode("BALANCE:");
    let thePrice = document.createTextNode(balance.value);
+   let ourDate =  document.createTextNode(date);
+   let ourTime =  document.createTextNode(time);
 
    balanceColumnOne.appendChild(balanceText);
    balanceColumnTwo.appendChild(thePrice);
+   dateColumnThree.appendChild(ourDate);
+   timeColumnFour.appendChild(ourTime);
 
    balanceRow.appendChild(balanceColumnOne);
    balanceRow.appendChild(balanceColumnTwo);
+   balanceRow.appendChild(dateColumnThree);
+   balanceRow.appendChild(timeColumnFour);
 
    table.appendChild(balanceRow);
 
-   product.value = ""
-   productPrice.value = ""
-   numberPurchased.value = ""
+   product.value = "";
+   productPrice.value = "";
+   numberPurchased.value = "";
+   totalPrice.value = "";
+   balance.value = "";
+   amountPaid.value = "";
 
    product.style.pointerEvents = "none";
    productPrice.style.pointerEvents = "none";
@@ -121,8 +153,10 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
    submit.disabled = true;
    printNow.disabled = false;
     };
-} else if(newPrice.includes("+", 1) && (productPrice.value === "" || numberPurchased.value === "" || product === "")){
+} else if(newPrice.includes("+", 1) && (productPrice.value === "" || numberPurchased.value === "" || product.value === "")){
 alert('ADD THE LAST PRODUCT BY FILLING ALL THE FIELDS THEN CLICK THE SUBMIT BUTTON TO GENERATE RECEIPT');
+} else if(productPrice.value === "" || numberPurchased.value === "" || product.value === "" || amountPaid.value === ""){
+alert("FILL THE FIELDS REQUIRED");
 } else {
 
     let price = parseInt(newPrice);
@@ -205,21 +239,32 @@ document.getElementsByTagName('input')[5].placeholder = "ENTER AMOUNT PAID";
 
    let balanceColumnOne = document.createElement("td");
    let balanceColumnTwo = document.createElement("td");
+   let dateColumnThree = document.createElement("td");
+   let timeColumnFour = document.createElement("td");
    
    let balanceText = document.createTextNode("BALANCE:");
    let thePrice = document.createTextNode(balance.value);
+   let ourDate =  document.createTextNode(date);
+   let ourTime =  document.createTextNode(time);
 
    balanceColumnOne.appendChild(balanceText);
    balanceColumnTwo.appendChild(thePrice);
+   dateColumnThree.appendChild(ourDate);
+   timeColumnFour.appendChild(ourTime);
 
    balanceRow.appendChild(balanceColumnOne);
    balanceRow.appendChild(balanceColumnTwo);
+   balanceRow.appendChild(dateColumnThree);
+   balanceRow.appendChild(timeColumnFour);
 
    table.appendChild(balanceRow);
 
-   product.value = ""
-   productPrice.value = ""
-   numberPurchased.value = ""
+   product.value = "";
+   productPrice.value = "";
+   numberPurchased.value = "";
+   totalPrice.value = "";
+   balance.value = "";
+   amountPaid.value = "";
 
    product.style.pointerEvents = "none";
    productPrice.style.pointerEvents = "none";
@@ -239,6 +284,7 @@ const addition = () => {
     let totalPrice = document.getElementsByTagName('input')[0];
     let balance = document.getElementsByTagName('input')[1];
     let product = document.getElementsByTagName('input')[2].value;
+    product = product.toUpperCase();
     let productPrice= document.getElementsByTagName('input')[3];
     let numberPurchased= document.getElementsByTagName('input')[4];
     let amountPaid= document.getElementsByTagName('input')[5];
@@ -357,26 +403,18 @@ const set = () => {
 reset.addEventListener("click", set);
 
 const toPrint = () => {
-    let totalPrice = document.getElementsByTagName('input')[0].value;
-    if(totalPrice === ""){
-        alert ("NOTHING TO PRINT")
-    } else {
 
-      const printDiv = () => {
         document.getElementsByTagName("caption")[0].style.display = "initial";
         let receipt = document.getElementById("receipt").innerHTML;
             let a = window.open(' ',' ', 'height=500, width=400');
             a.document.write('<html>');
             a.document.write('<head> <style>');
-            a.document.write(' * {box-sizing: border-box;} caption {font-weight: 900; margin-left:140px; font-size: 15px;}   table{width: 360px; margin: auto;} table,th, td { font-family: monospace, sans-serif; border: 0.2px solid black; border-collapse: collapse; border: 0.2px solid black; padding: 5px; font-size: xx-small;} th,td {text-align: center;}');
+            a.document.write(' * {box-sizing: border-box;} caption {font-weight: 900; margin-left:140px; font-size: 15px;}   table{width: 150px; margin: auto;} table,th, td { font-family: monospace, sans-serif; border: 0.2px solid black; border-collapse: collapse; border: 0.2px solid black; padding: 5px; font-size: xx-small;} th,td {text-align: center;}');
             a.document.write('</style> </head>');
             a.document.write('<body> <br>');
             a.document.write(receipt);
             a.document.write('</body> </html>');
             a.document.close();
-            a.print()
-        };
-        printDiv();
-    };
+            a.print();
 };
 printNow.addEventListener("click", toPrint);
