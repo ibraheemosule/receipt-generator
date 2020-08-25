@@ -119,7 +119,7 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
 
    add.disabled = true;
    submit.disabled = true;
-   
+   printNow.disabled = false;
     };
 } else {
 
@@ -226,7 +226,7 @@ document.getElementsByTagName('input')[5].placeholder = "ENTER AMOUNT PAID";
 
    add.disabled = true;
    submit.disabled = true;
-   
+   printNow.disabled = false;
     };
 };
 };
@@ -285,6 +285,7 @@ const addition = () => {
         document.getElementsByTagName('input')[2].value = "";
         document.getElementsByTagName('input')[3].value = "";
         document.getElementsByTagName('input')[4].value = "";
+        printNow.disabled = true;
      
     }else if(totalPrice.value !== "" && productPrice.value !== "" && numberPurchased.value !== "" && product !== ""){
 
@@ -332,6 +333,7 @@ const addition = () => {
        document.getElementsByTagName('input')[2].value = "";
        document.getElementsByTagName('input')[3].value = "";
        document.getElementsByTagName('input')[4].value = "";
+       printNow.disabled = true;
 
     } else {
         alert("ENTER VALID DIGITS");
