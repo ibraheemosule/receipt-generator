@@ -121,6 +121,8 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
    submit.disabled = true;
    printNow.disabled = false;
     };
+} else if(newPrice.includes("+", 1) && (productPrice.value === "" || numberPurchased.value === "" || product === "")){
+alert('FILL ALL FIELDS');
 } else {
 
     let price = parseInt(newPrice);
