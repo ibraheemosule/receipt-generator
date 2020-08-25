@@ -122,7 +122,7 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
    printNow.disabled = false;
     };
 } else if(newPrice.includes("+", 1) && (productPrice.value === "" || numberPurchased.value === "" || product === "")){
-alert('FILL ALL FIELDS');
+alert('ADD THE LAST PRODUCT BY FILLING ALL THE FIELDS THEN CLICK THE SUBMIT BUTTON TO GENERATE RECEIPT');
 } else {
 
     let price = parseInt(newPrice);

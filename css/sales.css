@@ -25,6 +25,20 @@ h3 {
     text-shadow:1.2px 1.2px darkolivegreen;
 }
 
+section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: -2%;
+    height: 50px;
+}
+
+section p {
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    font-size:90%;
+}
+
 span {
     display: flex;
     justify-content: space-between;
@@ -218,14 +232,15 @@ th, td {
         width: 100%;
     }
 }
-@media screen and (max-width: 362px){
+@media screen and (max-width: 418px){
     div.amountPaid {
        display: flex;
        flex-wrap: wrap;
         row-gap: 10px;
     }
-}
-@media screen and (max-width: 362px){
+    section{
+        display: none;
+    }
     span {
         height: 80px;
         flex-wrap: wrap;
