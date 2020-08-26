@@ -31,6 +31,10 @@ theYear = theYear.substr(2, 4)
  let theMinutes = theDate.getMinutes();
  let time;
 
+ if(theMinutes < 10){
+theMinutes = "0" + theMinutes;
+ };
+
  if(theHour === 0){
      theHour = theHour + 12;
      time = "TIME:" + " " + theHour + ":" + theMinutes + " " + "AM";
