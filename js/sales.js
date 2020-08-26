@@ -158,7 +158,7 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
    printNow.disabled = false;
     };
 } else if(newPrice.includes("+", 1) && (productPrice.value === "" || numberPurchased.value === "" || product.value === "")){
-alert('ADD THE LAST PRODUCT BY FILLING ALL THE FIELDS THEN CLICK THE SUBMIT BUTTON TO GENERATE RECEIPT');
+alert('ERRROR!! THERE IS A PLUS SIGN AT THE END OF THE TOTAL PRICE, USE THE SUBMIT BUTTON TO ADD THE LAST PRODUCT');
 } else if(productPrice.value === "" || numberPurchased.value === "" || product.value === "" || amountPaid.value === ""){
 alert("FILL THE FIELDS REQUIRED");
 } else {
