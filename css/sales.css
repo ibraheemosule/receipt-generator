@@ -233,6 +233,9 @@ th, td {
     }
 }
 @media screen and (max-width: 418px){
+    input:nth-child(2) {
+        margin-bottom: 0;
+    }
     div.amountPaid {
        display: flex;
        flex-wrap: wrap;
