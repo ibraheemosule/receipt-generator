@@ -27,7 +27,7 @@ theYear = theYear.substr(2, 4)
  let theMonth = theDate.getMonth() + 1 + "/";
  let theDay = theDate.getDate() + "/";
  let date = `DATE: ${theDay}${theMonth}${theYear}`
- let theHour = 12
+ let theHour = theDate.getHours();
  let theMinutes = theDate.getMinutes();
  let time;
 
