@@ -233,14 +233,21 @@ th, td {
     }
 }
 @media screen and (max-width: 418px){
-    input:nth-child(2) {
-        margin-bottom: 0;
-    }
+   
     div.amountPaid {
        display: flex;
        flex-wrap: wrap;
         row-gap: 10px;
         height: 140px;
+    }button.add {
+        margin-top: 3%;
+    }
+    button.reset {
+        margin-top: 3%;
+        margin-left: 10%;
+    }
+    button.submit {
+     margin-top: 3%;
     }
     section{
         display: none;
@@ -260,6 +267,13 @@ th, td {
     input:nth-child(2) {
         margin-bottom: 0;
     }
+}
+
+@media screen and (max-width: 340px){
+}
+button.reset {
+    margin-left: 5%;
+}
 }
 @media screen and (max-width: 258px){
 div.itemPrice, div.itemPurchased {
