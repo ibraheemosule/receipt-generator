@@ -237,6 +237,7 @@ th, td {
        display: flex;
        flex-wrap: wrap;
         row-gap: 10px;
+        height: 140px;
     }
     section{
         display: none;

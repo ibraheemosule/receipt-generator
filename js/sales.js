@@ -27,7 +27,7 @@ theYear = theYear.substr(2, 4)
  let theMonth = theDate.getMonth() + 1 + "/";
  let theDay = theDate.getDate() + "/";
  let date = `DATE: ${theDay}${theMonth}${theYear}`
- let theHour = theDate.getHours();
+ let theHour = 12
  let theMinutes = theDate.getMinutes();
  let time;
 
@@ -38,8 +38,8 @@ theMinutes = "0" + theMinutes;
  if(theHour === 0){
      theHour = theHour + 12;
      time = "TIME:" + " " + theHour + ":" + theMinutes + " " + "AM";
- } else if(theHour > 0 && theHour < 12){
-     time = "TIME:"+ " " + theHour + ":" + theMinutes + " " + "AM";
+ } else if(theHour > 0 && theHour < 13){
+     time = "TIME:"+ " " + theHour + ":" + theMinutes + " " + "PM";
  } else {
     theHour = theHour - 12;
      time = "TIME:" + " " + theHour + ":" + theMinutes + " " + "PM";
