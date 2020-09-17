@@ -7,18 +7,26 @@ let printNow = document.getElementsByTagName('button')[3];
 
 printNow.disabled = true;
 
+let company =  document.getElementsByTagName('input')[0];
+
+
+const getCompanyName = () => {
+   let a = localStorage.getItem("comp");
+   company.value = a;
+}
+window.addEventListener('load', getCompanyName);
 //ANSWER OR SUBMIT FUNCTION
 const totalPriceFunc = () => {
 
-let totalPrice = document.getElementsByTagName('input')[0];
-let balance = document.getElementsByTagName('input')[1];
-let product = document.getElementsByTagName('input')[2];
-let OutputProduct = document.getElementsByTagName('input')[2].value;
+let totalPrice = document.getElementsByTagName('input')[1];
+let balance = document.getElementsByTagName('input')[2];
+let product = document.getElementsByTagName('input')[3];
+let OutputProduct = document.getElementsByTagName('input')[4].value;
 OutputProduct = OutputProduct.toUpperCase();
-let newPrice = document.getElementsByTagName('input')[0].value;
-let productPrice= document.getElementsByTagName('input')[3];
-let numberPurchased= document.getElementsByTagName('input')[4];
-let amountPaid= document.getElementsByTagName('input')[5];
+let newPrice = document.getElementsByTagName('input')[1].value;
+let productPrice= document.getElementsByTagName('input')[4];
+let numberPurchased= document.getElementsByTagName('input')[5];
+let amountPaid= document.getElementsByTagName('input')[6];
 
 let theDate = new Date()
 let theYear = theDate.getFullYear();
@@ -141,6 +149,34 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
 
    table.appendChild(balanceRow);
 
+   
+   localStorage.setItem("comp", company.value);
+   let thanksMessage =  document.createElement("p");
+   thanksMessage.style.fontSize = "x-small";
+   thanksMessage.style.width = "50%";
+   thanksMessage.style.textAlign ="center";
+   thanksMessage.style.color = "rgba(58, 48, 48, 0.794);";
+   thanksMessage.style.fontWeight = "900";
+   thanksMessage.style.fontFamily = "monospace";
+   thanksMessage.style.letterSpacing = "2px";
+   thanksMessage.style.marginRight = "auto";
+   thanksMessage.style.marginLeft = "auto";
+   let receipt = document.getElementById("receipt");
+
+   if (company.value !==""){
+    let companyName = company.value.toUpperCase();
+    let gratitude = "THANK YOU FOR PATRONIZING" +" " + companyName;
+       let message = document.createTextNode(gratitude);
+       thanksMessage.appendChild(message);
+       receipt.appendChild(thanksMessage)
+   }else {
+       let gratitude = "THANK YOU FOR PATRONIZING US";
+       let message = document.createTextNode(gratitude);
+       thanksMessage.appendChild(message);
+       receipt.appendChild(thanksMessage)
+   };
+
+
    product.value = "";
    productPrice.value = "";
    numberPurchased.value = "";
@@ -169,11 +205,11 @@ alert("FILL THE FIELDS REQUIRED");
     let newAmountPaid = parseInt(amountPaid.value);
 
     if(newAmountPaid === "" || newAmountPaid === NaN ){
-document.getElementsByTagName('input')[5].placeholder = "ENTER AMOUNT PAID";
+document.getElementsByTagName('input')[6].placeholder = "ENTER AMOUNT PAID";
 } else if(newNumberPurchased === "" || newNumberPurchased === NaN){
-    document.getElementsByTagName('input')[4].placeholder = "Input a Number of item";
+    document.getElementsByTagName('input')[5].placeholder = "Input a Number of item";
 }  else if(newProductPrice === "" || newProductPrice === NaN ){
-    document.getElementsByTagName('input')[4].placeholder = "Input a Number of item";
+    document.getElementsByTagName('input')[5].placeholder = "Input a Number of item";
 }  else {
     let answer = newProductPrice * newNumberPurchased;
     let itemPrice = newProductPrice * newNumberPurchased;
@@ -263,6 +299,33 @@ document.getElementsByTagName('input')[5].placeholder = "ENTER AMOUNT PAID";
 
    table.appendChild(balanceRow);
 
+   localStorage.setItem("comp", company.value);
+   let thanksMessage =  document.createElement("p");
+   thanksMessage.style.fontSize = "x-small";
+   thanksMessage.style.width = "50%";
+   thanksMessage.style.textAlign ="center";
+   thanksMessage.style.color = "rgba(58, 48, 48, 0.794)";
+   thanksMessage.style.fontWeight = "900";
+   thanksMessage.style.fontFamily = "monospace";
+   thanksMessage.style.letterSpacing = "2px";
+   thanksMessage.style.marginRight = "auto";
+   thanksMessage.style.marginLeft = "auto";
+   let receipt = document.getElementById("receipt");
+
+   if (company.value !==""){
+    let companyName = company.value.toUpperCase();
+    let gratitude = "THANK YOU FOR PATRONIZING" +" " + companyName;
+       let message = document.createTextNode(gratitude);
+       thanksMessage.appendChild(message);
+       receipt.appendChild(thanksMessage)
+   }else {
+       let gratitude = "THANK YOU FOR PATRONIZING US";
+       let message = document.createTextNode(gratitude);
+       thanksMessage.appendChild(message);
+       receipt.appendChild(thanksMessage)
+   };
+   
+
    product.value = "";
    productPrice.value = "";
    numberPurchased.value = "";
@@ -285,28 +348,32 @@ submit.addEventListener('click', totalPriceFunc);
 
 //ADDITION FUNCTION
 const addition = () => {
-    let totalPrice = document.getElementsByTagName('input')[0];
-    let balance = document.getElementsByTagName('input')[1];
-    let product = document.getElementsByTagName('input')[2].value;
+    let totalPrice = document.getElementsByTagName('input')[1];
+    let balance = document.getElementsByTagName('input')[2];
+    let product = document.getElementsByTagName('input')[3].value;
     product = product.toUpperCase();
-    let productPrice= document.getElementsByTagName('input')[3];
-    let numberPurchased= document.getElementsByTagName('input')[4];
-    let amountPaid= document.getElementsByTagName('input')[5];
+    let productPrice= document.getElementsByTagName('input')[4];
+    let numberPurchased= document.getElementsByTagName('input')[5];
+    let amountPaid= document.getElementsByTagName('input')[6];
   
     if(totalPrice.value === "" && productPrice.value !== "" && numberPurchased.value !== "" && product !== "" && isNaN(productPrice.value)===false  && isNaN(numberPurchased.value)===false  && isNaN(amountPaid.value)===false){
         let newProductPrice = parseInt(productPrice.value);
         let newNumberPurchased = parseInt(numberPurchased.value);
         let newAmountPaid = parseInt(amountPaid.value);
         let answer = newProductPrice * newNumberPurchased;
-
-         totalPrice.value = answer + "+";
-
-         if (isNaN(newAmountPaid) === false && newAmountPaid !== "") {
+    
+        if (isNaN(newAmountPaid) === false && newAmountPaid !== "") {
             let balanceReturn = newAmountPaid - answer;
             if(balanceReturn > 0){
                 balance.value = balanceReturn;
+            } else {
+                balance.value = "NO BALANCE";
             };
         };
+
+         totalPrice.value = answer + "+";
+
+        
 
         let table = document.getElementsByTagName("table")[0];
 
@@ -334,9 +401,9 @@ const addition = () => {
 
        table.appendChild(tableRow);
 
-        document.getElementsByTagName('input')[2].value = "";
         document.getElementsByTagName('input')[3].value = "";
         document.getElementsByTagName('input')[4].value = "";
+        document.getElementsByTagName('input')[5].value = "";
         printNow.disabled = true;
      
     }else if(totalPrice.value !== "" && productPrice.value !== "" && numberPurchased.value !== "" && product !== ""){
@@ -382,9 +449,9 @@ const addition = () => {
 
       table.appendChild(tableRow);
 
-       document.getElementsByTagName('input')[2].value = "";
        document.getElementsByTagName('input')[3].value = "";
        document.getElementsByTagName('input')[4].value = "";
+       document.getElementsByTagName('input')[5].value = "";
        printNow.disabled = true;
 
     } else {
@@ -396,12 +463,12 @@ add.addEventListener("click", addition);
 
 //RESET FUNCTION
 const set = () => {
-    document.getElementsByTagName('input')[0].value = "";
     document.getElementsByTagName('input')[1].value = "";
     document.getElementsByTagName('input')[2].value = "";
     document.getElementsByTagName('input')[3].value = "";
     document.getElementsByTagName('input')[4].value = "";
     document.getElementsByTagName('input')[5].value = "";
+    document.getElementsByTagName('input')[6].value = "";
     document.location.reload();
 };
 reset.addEventListener("click", set);
