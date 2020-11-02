@@ -503,6 +503,9 @@ receipt.appendChild(table);
 let totalPrice = document.getElementsByTagName('input')[1].value = '';
 let balance = document.getElementsByTagName('input')[2].value = '';
 
+reset.style.backgroundColor = "rgba(144, 140, 140, 0.239)"
+reset.style.color = "black"
+
 let productPrice= document.getElementsByTagName('input')[4];
 let numberPurchased= document.getElementsByTagName('input')[5];
 let amountPaid= document.getElementsByTagName('input')[6];

@@ -10,7 +10,7 @@ div:nth-child(1) {
     width: 30%;
     height: auto;
     color: rgb(46, 44, 44);
-    border: 1px solid rgba(1, 31, 1, 0.568);
+    border: 0.5px solid rgba(1, 31, 1, 0.568);
     border-radius: 5%;
     background-color: rgba(213, 208, 214, 0.218);
     padding: 1%;
@@ -22,7 +22,6 @@ div:nth-child(1) {
 h3 {
     text-align: center;
     color: rgba(2, 4, 68, 0.835);
-    text-shadow:1.2px 1.2px darkolivegreen;
 }
 
 section {
