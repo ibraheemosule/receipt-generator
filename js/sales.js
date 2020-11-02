@@ -180,8 +180,6 @@ if(newPrice.includes("+", 1) && productPrice.value !== "" && numberPurchased.val
    product.value = "";
    productPrice.value = "";
    numberPurchased.value = "";
-   totalPrice.value = "";
-   balance.value = "";
    amountPaid.value = "";
 
    product.style.pointerEvents = "none";
@@ -329,8 +327,6 @@ document.getElementsByTagName('input')[6].placeholder = "ENTER AMOUNT PAID";
    product.value = "";
    productPrice.value = "";
    numberPurchased.value = "";
-   totalPrice.value = "";
-   balance.value = "";
    amountPaid.value = "";
 
    product.style.pointerEvents = "none";
@@ -469,8 +465,59 @@ const set = () => {
     document.getElementsByTagName('input')[4].value = "";
     document.getElementsByTagName('input')[5].value = "";
     document.getElementsByTagName('input')[6].value = "";
-    document.location.reload();
+
+let receipt = document.getElementById('receipt');
+let table = document.createElement('table');
+let tableRow = document.createElement("tr");
+let caption = document.createElement('caption');
+caption.style.display = 'none';
+
+let columnOne = document.createElement("th");
+let columnTwo = document.createElement("th");
+let columnThree = document.createElement("th");
+let columnFour = document.createElement("th");
+
+let captionMessage = document.createTextNode('RECEIPT');
+let itemBought = document.createTextNode('ITEM BOUGHT');
+let sellingPrice = document.createTextNode('SELLING PRICE');
+let itemNumber = document.createTextNode(' No. OF ITEM(S)');
+let price = document.createTextNode('PRICE');
+
+caption.appendChild(captionMessage);
+columnOne.appendChild(itemBought);
+columnTwo.appendChild(sellingPrice);
+columnThree.appendChild(itemNumber);
+columnFour.appendChild(price);
+
+tableRow.appendChild(columnOne);
+tableRow.appendChild(columnTwo);
+tableRow.appendChild(columnThree);
+tableRow.appendChild(columnFour);
+
+table.appendChild(caption);
+table.appendChild(tableRow);
+
+receipt.innerHTML = '';
+receipt.appendChild(table);
+
+let totalPrice = document.getElementsByTagName('input')[1].value = '';
+let balance = document.getElementsByTagName('input')[2].value = '';
+
+let productPrice= document.getElementsByTagName('input')[4];
+let numberPurchased= document.getElementsByTagName('input')[5];
+let amountPaid= document.getElementsByTagName('input')[6];
+let product = document.getElementsByTagName('input')[3];
+
+product.style.pointerEvents = "initial";
+productPrice.style.pointerEvents = "initial";
+numberPurchased.style.pointerEvents = "initial";
+amountPaid.style.pointerEvents = "initial";
+
+add.disabled = false;
+submit.disabled = false;
+printNow.disabled = true;
 };
+
 reset.addEventListener("click", set);
 
 const toPrint = () => {
@@ -486,6 +533,9 @@ const toPrint = () => {
             a.document.write(receipt);
             a.document.write('</body> </html>');
             a.document.close();
+            document.getElementById("receipt").innerHTML = ''
+            reset.style.backgroundColor = "rgba(109, 6, 6)"
+            reset.style.color = "white"
             a.print();
 };
 printNow.addEventListener("click", toPrint);
