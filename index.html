@@ -2,62 +2,81 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css\sales.css">
-    </head>
-    <body>
-        <div>
-           <h3>RECEIPT GENERATOR</h3>
-           <input class="company" type="text" placeholder="NAME OF COMPANY" style="width:95%; height: 35px;">
-                <section><p>TOTAL PRICE</p><p>BALANCE RETURN</p></section>
-               <span class="price">
-                <input type="text" placeholder="TOTAL PRICE">
-                <input type="text" placeholder="BALANCE RETURN">
-               </span>
-               <div class="product">
-                <p> NAME OF ITEM: </p>
-             <input class="product" type="text" placeholder="INPUT PRODUCT NAME">
-             </div>
-               <div class="itemPrice">
-                  <p> PRICE OF PRODUCT PURCHASED: </p>
-               <input class="itemPrice" type="text" placeholder="PRODUCT PRICE">
-               </div>
-               <div class="itemPurchased">
-                   <p>NUMBER OF ITEM(S) PURCHASED:</p>
-                   <input class="itemPurchased" type="text" placeholder="PRODUCT QUANTITY">
-               </div>
-               <div class="amountPaid">
-                <p>AMOUNT PAID:</p>
-                <input class="amountPaid" type="text" placeholder="AMOUNT PAID">
-                <button class="reset">RESET</button>
-                <button class="add">ADD ITEM</button>
-                <button class="submit">SUBMIT</button>
-            </div>
-            <div>
-                <button class="receipt">PRINT RECEIPT</button>
-            <div id="receipt">
-                <table>
-                    <caption>RECEIPT</caption>
-                    <tr>
-                    <th>ITEM BOUGHT</th>
-                    <th>SELLING PRICE</th>
-                    <th> No. OF ITEM(S)</th>
-                    <th>PRICE</th>
-                </tr>
-                </table>
-            </div>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css\sales.css" />
+  </head>
+  <body>
+    <div>
+      <h3>RECEIPT GENERATOR</h3>
+      <input
+        class="company"
+        type="text"
+        placeholder="NAME OF COMPANY"
+        style="width: 95%; height: 35px"
+      />
+      <section class="price-container">
+        <p>TOTAL PRICE</p>
+        <p>BALANCE RETURN</p>
+      </section>
+      <span class="price price-container">
+        <input type="text" class="total" placeholder="TOTAL PRICE" />
+        <input type="text" class="total" placeholder="BALANCE RETURN" />
+      </span>
+      <div class="product">
+        <p>NAME OF ITEM:</p>
+        <input class="product" type="text" placeholder="INPUT PRODUCT NAME" />
+      </div>
+      <div class="itemPrice">
+        <p>PRICE OF PRODUCT PURCHASED:</p>
+        <input class="itemPrice" type="text" placeholder="PRODUCT PRICE" />
+      </div>
+      <div class="itemPurchased">
+        <p>NUMBER OF ITEM(S) PURCHASED:</p>
+        <input
+          class="itemPurchased"
+          type="text"
+          placeholder="PRODUCT QUANTITY"
+        />
+      </div>
+      <div class="amountPaid">
+        <p>AMOUNT PAID:</p>
+        <input class="amountPaid" type="text" placeholder="AMOUNT PAID" />
+        <button class="reset">RESET</button>
+        <button class="add">ADD ITEM</button>
+        <button class="submit">SUBMIT</button>
+      </div>
+      <div>
+        <button class="receipt">PRINT RECEIPT</button>
+        <div id="receipt">
+          <table>
+            <caption>
+              RECEIPT
+            </caption>
+            <tr>
+              <th>ITEM BOUGHT</th>
+              <th>SELLING PRICE</th>
+              <th>No. OF ITEM(S)</th>
+              <th>PRICE</th>
+            </tr>
+          </table>
         </div>
-        </div>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <script src="js\sales.js" async defer></script>
-    </body>
+      </div>
+    </div>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <script src="js\sales.js" async defer></script>
+  </body>
 </html>
